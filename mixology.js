@@ -45,13 +45,6 @@ async function main() {
     response.render("getDrinks", { portnum: portNumber });
     response.end();
   });
-  app.get("/processDrinks", (request, response) => {
-    app.use(express.static(myPath));
-    app.set("views", myPath);
-    app.set("view engine", "ejs");
-    response.render("index");
-    response.end();
-  });
   app.get("/savedDrinks", async (request, response) => {
     app.use(express.static(myPath));
     app.set("views", myPath);
@@ -135,6 +128,7 @@ async function main() {
       category: category,
       type: type,
       table: table,
+      portnum: portNumber,
     });
     response.end();
   });
@@ -244,6 +238,7 @@ async function main() {
       });
     response.render("addedConfirmation", {
       ingredient: ingredient,
+      portnum: portNumber,
     });
     response.end();
   });
@@ -264,7 +259,7 @@ async function main() {
     } finally {
       await client.close();
     }
-    response.render("removeConfirmation", { count: count });
+    response.render("removeConfirmation", { count: count ,portnum: portNumber });
     response.end();
   });
 
