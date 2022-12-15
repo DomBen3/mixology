@@ -259,7 +259,7 @@ async function main() {
     } finally {
       await client.close();
     }
-    response.render("removeConfirmation", { count: count ,portnum: portNumber });
+    response.render("removeConfirmation", { count: count , portnum: portNumber });
     response.end();
   });
 
