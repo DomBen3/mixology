@@ -1,7 +1,7 @@
 const path = require("path");
 const bodyParser = require("body-parser");
 const express = require("express");
-const portNumber = process.argv[2];
+const portNumber = process.env.PORT || 5001;
 const myPath = path.resolve(__dirname, "templates");
 require("dotenv").config({
   path: path.resolve(__dirname, "credentials/.env"),
@@ -22,26 +22,8 @@ const databaseAndCollection = {
 /****** DO NOT MODIFY FROM THIS POINT ONE ******/
 const { MongoClient, ServerApiVersion } = require("mongodb");
 async function main() {
-  console.log(
-    `Web server started and running at http://localhost:${portNumber}`
-  );
-  console.log("Stop to shut down the server: ");
-  process.stdin.setEncoding("utf8");
-  process.stdin.on("readable", () => {
-    let dataInput = process.stdin.read();
-    if (dataInput !== null) {
-      let command = dataInput.trim();
-      if (command === "stop") {
-        console.log("Shutting down the server");
-        process.exit(0);
-      }
-      console.log("Stop to shut down the server: ");
-      process.stdin.resume();
-    }
-  });
   let app = express();
   app.use(bodyParser.urlencoded({ extended: false }));
-
   const uri = `mongodb+srv://${userName}:${password}@cluster0.9vie6iz.mongodb.net/?retryWrites=true&w=majority`;
   const client = new MongoClient(uri, {
     useNewUrlParser: true,
@@ -286,7 +268,7 @@ async function main() {
     response.end();
   });
 
-  app.listen(portNumber);
+  app.listen(port);
 }
 
 main().catch(console.error);
