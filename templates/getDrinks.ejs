@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="style.css">
+	<title>Get Drinks</title>
+</head>
+
+<body>
+    <h1 id="title">Complete the form below to find drinks!</h1>
+    <fieldset>
+        <form action="http://localhost:<%- portnum %>/processDrinks" method="post">
+            <label><b>Enter the name of a drink (ex: margarita): </b> <input type="text" id="ingredient" name="ingredient" required></label>
+    </fieldset>
+		<br>
+		<input type="reset" value="Reset">
+		<input type="submit" id="button1" value="Find Drinks">
+	</form>
+
+	<hr>
+	<a href="/"><u>Go Home</u></a>
+</body>
+</html>

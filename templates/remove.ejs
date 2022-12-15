@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="style.css">
+	<title>Remove Drinks</title>
+	<script> 
+		function checksubmit2() {
+			if (confirm('Are you sure you want to remove all saved drinks?')) {
+				document.getElementById("button2").submit();
+		   } else {
+			   return false;
+		   }  
+		}
+		</script>
+</head>
+
+<body>
+	<h1 id="title">Removing All Saved Drinks</h1>
+    <form action="http://localhost:<%- portnum %>/removeConfirmation" method="post" onsubmit= "return checksubmit2()">
+		    <input type="submit" id = "button2" value="Remove all Saved Drinks">
+    </form>
+	<hr>
+	<a href="/"><u>Go Home</u></a>
+</body>
+
+</html>

@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="style.css">
+	<title>Search Drinks</title>
+</head>
+
+<body>
+    <h1 id="title">Complete the form below to filter through your saved drink list!</h1>
+    <fieldset>
+        <form action="http://localhost:<%- portnum %>/filteredDrinks" method="post">
+            <label for="category"><b>Search Saved Drink List by Drink Category:</b></label>
+            <select id="category" name="category">
+            <option value="Ordinary Drink">Ordinary Drink</option>
+            <option value="Cocktail">Cocktail</option>
+            <option value="Shake">Shake</option>
+            <option value="Cocoa">Cocoa</option>
+            <option value="Shot">Shot</option>
+            <option value="Coffee / Tea">Coffee/Tea</option>
+            <option value="Homemade Liqueur">Homemade Liqueur</option>
+            <option value="Punch / Party Drink">Punch/Party Drink</option>
+            <option value="Beer">Beer</option>
+            <option value="Soft Drink">Soft Drink</option>
+            <option value="Other / Unknown">Other</option>
+            </select>
+            <br><br>
+            <label><b>Search Saved Drink List by Type of Drink</b></label> 
+        <input type="radio" name="type" value="Alcoholic"> Alcoholic	        
+        <input type="radio" name="type" value="Non alcoholic" required> Non-Alcoholic
+    </fieldset>
+		<br>
+		<input type="reset" value="Reset">
+		<input type="submit" id="button1" value="Search Saved Drink list">
+	</form>
+
+	<hr>
+	<a href="/"><u>Go Home</u></a>
+</body>
+
+</html>
